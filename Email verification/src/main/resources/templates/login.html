@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::Layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<body>
+	<section class="container mt-5">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="text-center">Login Here</h4>
+
+				<th:block th:if="${param.error}">
+					<p class="text-center text-danger">Email and Password Didn't match</p>
+				</th:block>
+
+
+				<form th:action="@{/userlogin}" method="post">
+					<div class="form-group mt-3">
+						<label for="email">Email address</label> <input type="email"
+							class="form-control" id="email" placeholder="Enter Email"
+							name="username">
+					</div>
+					<div class="form-group mt-3">
+						<label for="password">Enter Password</label> <input
+							type="password" class="form-control" id="password"
+							placeholder="Enter Password" name="password">
+					</div>
+					<div class="text-center mt-4">
+						<button type="submit" class="btn btn-primary">LogIn</button>
+						<button type="reset" class="btn btn-warning">Reset</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
